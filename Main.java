@@ -95,29 +95,29 @@ class Main {
     int noOfVehicles = scanner.nextInt();
     System.out.println(noOfVehicles);
 
-    for (int i = 0; i < noOfVehicles; i++) {
 
-      System.out.print("Enter Vehicle " + "License Plate No :");
+    for(int i =0; i < noOfVehicles ; i++){
+      System.out.print("Enter Vehicle License Plate No :");
       scanner.nextLine();
       String vehicleLicensePlateNo = scanner.nextLine();
-
 //Error 1
       vehicles.stream()
           .filter(vehicle -> (vehicle.getLicensePlateNo().equals(vehicleLicensePlateNo)))
           .forEachOrdered(vehicle -> {
             rentAgreemenVehicles.add(vehicle);
             vehicles.remove(vehicle);
+            System.out.println(rentAgreemenVehicles);
+            System.out.println(vehicle.getLicensePlateNo());
+            System.out.println(vehicles);
           });
-      
-    };
-
-
-
+    }
     System.out.print("Enter Rent Date(mm/dd/yyyy) :");
+    scanner.nextLine();
     String rentDate = scanner.nextLine();
 
 
     System.out.print("Enter Handover Date(mm/dd/yyyy) :");
+    scanner.nextLine();
     String handOverDate = scanner.nextLine();
 
     System.out.println(customers);
